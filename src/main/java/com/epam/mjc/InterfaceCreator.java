@@ -12,6 +12,7 @@ import java.util.stream.Stream;
 
 public class InterfaceCreator {
 
+
     public Predicate<List<String>> isValuesStartWithUpperCase() {
         return strs -> strs.stream()
                            .allMatch(s -> s.length() > 0 &&
@@ -33,11 +34,11 @@ public class InterfaceCreator {
         Predicate<String> endsWith = s -> s.endsWith(".");
         Predicate<String> containMoreThan3Words = s -> s.length() > 3;
 
+
         return () -> values.stream()
                             .filter(startsWithUpperCase
                                 .and(endsWith)
-                                .and(containMoreThan3Words))
-                                .collect(Collectors.toList());
+                                .and(containMoreThan3Words)).collect(Collectors.toList());
         }
 
     public Function<List<String>, Map<String, Integer>> stringSize() {
