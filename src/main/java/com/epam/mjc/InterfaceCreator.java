@@ -32,7 +32,7 @@ public class InterfaceCreator {
     public Supplier<List<String>> filterCollection(List<String> values) {
         Predicate<String> startsWithUpperCase = s -> s.length() > 0 && Character.isUpperCase(s.charAt(0));
         Predicate<String> endsWith = s -> s.endsWith(".");
-        Predicate<String> containMoreThan3Words = s -> s.length() > 3;
+        Predicate<String> containMoreThan3Words = s -> s.split(" ").length > 3;
 
 
         return () -> values.stream()
